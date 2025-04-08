@@ -12,10 +12,6 @@ app.post('/cart/add/:id', (req, res) => {
     const productId = parseInt(req.params.id);
     const product = cart.find(item => item.id === productId);
 
-    if (!product) {
-        return res.status(404).json({ error: 'Товар не найден' });
-    }
-
     userCart.push(product);
     total += product.price;
 
